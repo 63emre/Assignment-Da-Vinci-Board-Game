@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { User } from '../types';
+import type { User } from '../types';
 import { ApiService } from '../services/api';
 import { FcPlus, FcEditImage, FcEmptyTrash, FcCancel, FcCheckmark, FcDocument } from 'react-icons/fc';
 import UserForm from './UserForm';
