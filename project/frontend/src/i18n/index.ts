@@ -95,6 +95,7 @@ export interface Translations {
     search: string;
     filter: string;
     actions: string;
+    retry: string;
   };
   messages: {
     userCreated: string;

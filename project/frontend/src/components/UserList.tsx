@@ -85,7 +85,7 @@ const UserList: React.FC = () => {
       <div className="error-container">
         <div className="error-message">{error}</div>
         <button onClick={fetchUsers} className="retry-button">
-          {t.common.retry || 'Retry'}
+          {t.common.retry}
         </button>
       </div>
     );
