@@ -102,7 +102,7 @@ const PostList: React.FC = () => {
       <div className="error-container">
         <div className="error-message">{error}</div>
         <button onClick={fetchData} className="retry-button">
-          {t.common.retry}
+          {t.common.retry || 'Retry'}
         </button>
       </div>
     );

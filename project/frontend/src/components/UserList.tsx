@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import type { User } from '../types';
 import { ApiService } from '../services/api';
-import { FcPlus, FcEditImage, FcEmptyTrash, FcCancel, FcCheckmark, FcDocument } from 'react-icons/fc';
+import { FcPlus, FcEditImage, FcEmptyTrash, FcDocument } from 'react-icons/fc';
 import { useLanguage } from '../contexts/LanguageContext';
 import UserForm from './UserForm';
 import Modal from './Modal';
