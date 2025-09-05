@@ -22,7 +22,7 @@ timeout /t 3 /nobreak >nul
 REM Start frontend server
 echo Starting frontend server...
 cd ..\frontend
-start "Frontend Server" cmd /k "npm install && npm run dev"
+start "Frontend Server" cmd /k "npm install && npm run dev -- --force"
 
 echo.
 echo Backend running on: http://localhost:3001

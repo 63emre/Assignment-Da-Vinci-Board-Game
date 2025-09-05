@@ -20,7 +20,7 @@ FRONTEND_PID=$!
 echo "Backend PID: $BACKEND_PID"
 echo "Frontend PID: $FRONTEND_PID"
 echo ""
-echo "Backend running on: http://localhost:3000"
+echo "Backend running on: http://localhost:3001"
 echo "Frontend running on: http://localhost:5173"
 echo ""
 echo "Press Ctrl+C to stop both servers"

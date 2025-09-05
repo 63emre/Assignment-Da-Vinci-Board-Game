@@ -41,7 +41,7 @@ function Start-Frontend {
     }
     
     # Start frontend in new window
-    Start-Process powershell -ArgumentList "-NoExit", "-Command", "npm run dev"
+    Start-Process powershell -ArgumentList "-NoExit", "-Command", "npm run dev -- --force"
     Set-Location "..\.."
 }
 

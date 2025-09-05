@@ -168,3 +168,4 @@ The application uses React's built-in state management:
 ## 📄 License
 
 This project is part of the Da Vinci Board Game assignment.
+
