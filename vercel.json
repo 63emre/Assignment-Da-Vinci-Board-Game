@@ -2,8 +2,11 @@
   "version": 2,
   "builds": [
     {
-      "src": "project/backend/dist/main.js",
-      "use": "@vercel/node"
+      "src": "project/backend/src/main.ts",
+      "use": "@vercel/node",
+      "config": {
+        "runtime": "nodejs18.x"
+      }
     },
     {
       "src": "project/frontend/package.json",
@@ -16,7 +19,7 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "project/backend/dist/main.js"
+      "dest": "project/backend/src/main.ts"
     },
     {
       "src": "/(.*)",
@@ -25,11 +28,5 @@
   ],
   "env": {
     "NODE_ENV": "production"
-  },
-  "functions": {
-    "project/backend/dist/main.js": {
-      "runtime": "nodejs18.x"
-    }
-  },
-  "buildCommand": "cd project/backend && npm install && npm run build && cd ../frontend && npm install && npm run build"
+  }
 }
