@@ -6,7 +6,7 @@ const Homepage: React.FC = () => {
   return (
     <div className="homepage">
       <div className="hero-section">
-        <h1>Welcome to Da Vinci Board Game</h1>
+        <h1>Welcome to Assignment</h1>
         <p>Manage users and posts with our comprehensive CRUD application</p>
       </div>
       

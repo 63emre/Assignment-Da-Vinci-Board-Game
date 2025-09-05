@@ -1,4 +1,4 @@
-# Da Vinci Board Game - Full Stack Application
+# Assignment - Full Stack Application
 
 A complete full-stack web application with React + TypeScript frontend and NestJS + TypeScript backend, featuring comprehensive CRUD operations for users and posts.
 
@@ -15,6 +15,15 @@ This project demonstrates a modern full-stack development approach with:
 ### Prerequisites
 - Node.js (v18+ recommended)
 - npm or yarn
+
+### Easy Start (Windows)
+**Just double-click one of these files:**
+- `start_local.bat` - Windows Batch file
+- `start_local.ps1` - PowerShell script (may need execution policy change)
+
+Both will automatically start both servers in separate windows.
+
+### Manual Setup
 
 ### 1. Clone and Setup
 ```bash
@@ -45,6 +54,11 @@ cd project/frontend
 npm run dev
 ```
 Frontend will run on: http://localhost:5173
+
+### Alternative: Use Bash Script (Linux/Mac/WSL)
+```bash
+./start_local.sh
+```
 
 ## 📁 Project Structure
 

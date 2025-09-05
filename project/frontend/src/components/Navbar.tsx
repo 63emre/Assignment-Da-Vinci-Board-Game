@@ -10,7 +10,7 @@ const Navbar: React.FC = () => {
   return (
     <nav className="navbar">
       <div className="navbar-brand">
-        <h1>Da Vinci Board Game</h1>
+        <h1>Assignment</h1>
       </div>
       <ul className="navbar-nav">
         <li className={`nav-item ${isActive('/') ? 'active' : ''}`}>

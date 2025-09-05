@@ -24,8 +24,8 @@ async function bootstrap() {
 
   // Swagger setup
   const config = new DocumentBuilder()
-    .setTitle('Da Vinci Board Game API')
-    .setDescription('API for managing users and posts in the Da Vinci Board Game application')
+    .setTitle('Assignment API')
+    .setDescription('API for managing users and posts in the Assignment application')
     .setVersion('1.0')
     .addTag('users', 'User management endpoints')
     .addTag('posts', 'Post management endpoints')
@@ -33,7 +33,7 @@ async function bootstrap() {
 
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api/docs', app, document, {
-    customSiteTitle: 'Da Vinci API Documentation',
+    customSiteTitle: 'Assignment API Documentation',
     customfavIcon: '/favicon.ico',
     customCssUrl: '/swagger-ui-custom.css',
   });
