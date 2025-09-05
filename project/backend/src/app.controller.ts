@@ -8,12 +8,13 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get()
-  @ApiOperation({ 
+  @ApiOperation({
     summary: 'Get API information',
-    description: 'Returns basic information about the Da Vinci Board Game API, including version, available endpoints, and documentation links. This endpoint provides a quick overview of the API status and capabilities.'
+    description:
+      'Returns basic information about the Da Vinci Board Game API, including version, available endpoints, and documentation links. This endpoint provides a quick overview of the API status and capabilities.',
   })
-  @ApiResponse({ 
-    status: 200, 
+  @ApiResponse({
+    status: 200,
     description: 'Successfully retrieved API information',
     schema: {
       type: 'object',
@@ -21,17 +22,17 @@ export class AppController {
         message: {
           type: 'string',
           example: 'Welcome to Da Vinci Board Game API!',
-          description: 'Welcome message'
+          description: 'Welcome message',
         },
         version: {
           type: 'string',
           example: '1.0.0',
-          description: 'API version'
+          description: 'API version',
         },
         docs: {
           type: 'string',
           example: 'http://localhost:3001/api/docs',
-          description: 'API documentation URL'
+          description: 'API documentation URL',
         },
         endpoints: {
           type: 'object',
@@ -39,27 +40,38 @@ export class AppController {
             users: {
               type: 'string',
               example: '/users',
-              description: 'User management endpoints'
+              description: 'User management endpoints',
             },
             posts: {
-              type: 'string', 
+              type: 'string',
               example: '/posts',
-              description: 'Post management endpoints'
-            }
-          }
+              description: 'Post management endpoints',
+            },
+          },
         },
         features: {
           type: 'array',
           items: {
-            type: 'string'
+            type: 'string',
           },
-          example: ['User Management', 'Post Management', 'CRUD Operations', 'Swagger Documentation'],
-          description: 'List of available features'
-        }
-      }
-    }
+          example: [
+            'User Management',
+            'Post Management',
+            'CRUD Operations',
+            'Swagger Documentation',
+          ],
+          description: 'List of available features',
+        },
+      },
+    },
   })
-  getHello(): { message: string; version: string; docs: string; endpoints: object; features: string[] } {
+  getHello(): {
+    message: string;
+    version: string;
+    docs: string;
+    endpoints: object;
+    features: string[];
+  } {
     return this.appService.getHello();
   }
 }

@@ -1,7 +1,7 @@
 import { User, Post } from '../types';
 
 const BASE_URL = process.env.NODE_ENV === 'production' 
-  ? '/api' 
+  ? 'https://assignment-da-vinci-board-game.vercel.app/api'
   : 'http://localhost:3001';
 
 export class ApiService {

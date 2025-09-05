@@ -8,9 +8,13 @@ async function bootstrap() {
 
   // Enable CORS
   app.enableCors({
-    origin: process.env.NODE_ENV === 'production' 
-      ? ['https://assignment-da-vinci-board-game.vercel.app', 'https://*.vercel.app']
-      : ['http://localhost:5173', 'http://localhost:3000'],
+    origin:
+      process.env.NODE_ENV === 'production'
+        ? [
+            'https://assignment-da-vinci-board-game.vercel.app',
+            'https://*.vercel.app',
+          ]
+        : ['http://localhost:5173', 'http://localhost:3000'],
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
@@ -28,43 +32,45 @@ async function bootstrap() {
   // Swagger setup with bilingual support
   const getSwaggerConfig = (lang: string = 'en') => {
     const isTurkish = lang === 'tr';
-    
+
     return new DocumentBuilder()
-      .setTitle(isTurkish ? 'Da Vinci Board Game API' : 'Da Vinci Board Game API')
+      .setTitle(
+        isTurkish ? 'Da Vinci Board Game API' : 'Da Vinci Board Game API',
+      )
       .setDescription(
         isTurkish
           ? 'Da Vinci Board Game uygulamasında kullanıcılar ve gönderileri yönetmek için API. React 19 + TypeScript frontend ve NestJS + TypeScript backend ile oluşturulmuş modern full-stack uygulama.'
-          : 'API for managing users and posts in the Da Vinci Board Game application. Modern full-stack application built with React 19 + TypeScript frontend and NestJS + TypeScript backend.'
+          : 'API for managing users and posts in the Da Vinci Board Game application. Modern full-stack application built with React 19 + TypeScript frontend and NestJS + TypeScript backend.',
       )
       .setVersion('1.0')
       .addTag(
         'users',
         isTurkish
           ? 'Kullanıcı yönetimi uç noktaları - Kullanıcıları oluştur, oku, güncelle ve sil'
-          : 'User management endpoints - Create, read, update and delete users'
+          : 'User management endpoints - Create, read, update and delete users',
       )
       .addTag(
         'posts',
         isTurkish
           ? 'Gönderi yönetimi uç noktaları - Gönderileri oluştur, oku, güncelle ve sil'
-          : 'Post management endpoints - Create, read, update and delete posts'
+          : 'Post management endpoints - Create, read, update and delete posts',
       )
       .addTag(
         'root',
         isTurkish
           ? 'Ana API bilgileri ve sistem durumu'
-          : 'Root API information and system status'
+          : 'Root API information and system status',
       )
       .setContact(
         'Da Vinci Team',
         'https://www.linkedin.com/company/da-vinci-board-game',
-        'contact@davinci-team.com'
+        'contact@davinci-team.com',
       )
       .addServer(
-        process.env.NODE_ENV === 'production' 
+        process.env.NODE_ENV === 'production'
           ? 'https://assignment-da-vinci-board-game.vercel.app/api'
-          : 'http://localhost:3001', 
-        isTurkish ? 'Geliştirme Sunucusu' : 'Development Server'
+          : 'http://localhost:3001',
+        isTurkish ? 'Geliştirme Sunucusu' : 'Development Server',
       )
       .build();
   };
@@ -115,10 +121,10 @@ async function bootstrap() {
 
   const port = process.env.PORT ?? 3001;
   await app.listen(port);
-  
+
   console.log(`🚀 Server running on http://localhost:${port}`);
   console.log(`📚 Swagger documentation available at:`);
   console.log(`   🇬🇧 English: http://localhost:${port}/api/docs`);
   console.log(`   🇹🇷 Turkish: http://localhost:${port}/api/docs/tr`);
 }
-bootstrap();
+void bootstrap();
