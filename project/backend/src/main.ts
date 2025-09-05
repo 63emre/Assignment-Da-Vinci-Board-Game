@@ -60,7 +60,12 @@ async function bootstrap() {
         'https://www.linkedin.com/company/da-vinci-board-game',
         'contact@davinci-team.com'
       )
-      .addServer('http://localhost:3001', isTurkish ? 'Geliştirme Sunucusu' : 'Development Server')
+      .addServer(
+        process.env.NODE_ENV === 'production' 
+          ? 'https://assignment-da-vinci-board-game.vercel.app/api'
+          : 'http://localhost:3001', 
+        isTurkish ? 'Geliştirme Sunucusu' : 'Development Server'
+      )
       .build();
   };
 
