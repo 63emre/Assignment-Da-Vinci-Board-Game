@@ -1,293 +1,358 @@
-# Assignment - Full Stack Application
+# 🎯 Da Vinci Board Game - Full Stack Application
 
-A complete full-stack web application with React + TypeScript frontend and NestJS + TypeScript backend, featuring comprehensive CRUD operations for users and posts.
+<div align="center">
 
-## 🎯 Project Overview
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![NestJS](https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 
-This project demonstrates a modern full-stack development approach with:
-- **Frontend**: React 19 + Vite + TypeScript + React Icons
-- **Backend**: NestJS + TypeScript + Swagger + In-memory storage
-- **Features**: Complete CRUD operations, user-post relationships, modern UI/UX
-- **Documentation**: Comprehensive API docs with Swagger UI
+</div>
 
-## 🚀 Quick Start
+<div align="center">
+  <h3>🇬🇧 English | 🇹🇷 Türkçe</h3>
+</div>
 
-### Prerequisites
-- Node.js (v18+ recommended)
-- npm or yarn
+---
 
-### Easy Start (Windows)
+## 🇬🇧 English Version
+
+### 🚀 Project Overview
+
+A complete full-stack web application with **React 19 + TypeScript frontend** and **NestJS + TypeScript backend**, featuring comprehensive CRUD operations for users and posts with **bilingual support (English/Turkish)**.
+
+### ✨ Key Features
+
+- 🌍 **Bilingual Support**: Complete Turkish and English language support
+- 🏠 **Modern Frontend**: React 19 + Vite + TypeScript + React Icons
+- 🚀 **Robust Backend**: NestJS + TypeScript + Swagger UI + In-memory storage
+- 📚 **Interactive API Docs**: Comprehensive Swagger UI documentation
+- 🎨 **Beautiful UI/UX**: Modern design with smooth animations
+- 🔄 **Real-time Operations**: Instant CRUD operations with user feedback
+- 📱 **Responsive Design**: Works perfectly on all devices
+
+### 🛠 Tech Stack
+
+<div align="center">
+
+| Frontend | Backend | Tools |
+|----------|---------|-------|
+| ![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB) React 19 | ![NestJS](https://img.shields.io/badge/NestJS-E0234E?style=flat-square&logo=nestjs&logoColor=white) NestJS | ![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=flat-square&logo=swagger&logoColor=black) Swagger UI |
+| ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white) TypeScript | ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white) TypeScript | ![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=flat-square&logo=eslint&logoColor=white) ESLint |
+| ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white) Vite | ![Express](https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white) Express | ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white) Git |
+| ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=flat-square&logo=react-router&logoColor=white) React Router | ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white) Node.js | ![npm](https://img.shields.io/badge/npm-CB3837?style=flat-square&logo=npm&logoColor=white) npm |
+
+</div>
+
+### 🚀 Quick Start
+
+#### Prerequisites
+- ![Node.js](https://img.shields.io/badge/Node.js-v18+-339933?style=flat-square&logo=nodedotjs&logoColor=white)
+- ![npm](https://img.shields.io/badge/npm-latest-CB3837?style=flat-square&logo=npm&logoColor=white)
+
+#### 🪟 Windows Quick Start
 **Just double-click one of these files:**
 - `start_local.bat` - Windows Batch file
-- `start_local.ps1` - PowerShell script (may need execution policy change)
+- `start_local.ps1` - PowerShell script
 
-Both will automatically start both servers in separate windows.
+#### 🔧 Manual Setup
 
-### Manual Setup
-
-### 1. Clone and Setup
 ```bash
-# Clone the repository
+# 1. Clone the repository
 git clone <repository-url>
 cd Assignment-Da-Vinci-Board-Game
 
-# Install backend dependencies
+# 2. Install backend dependencies
 cd project/backend
 npm install --legacy-peer-deps
 
-# Install frontend dependencies  
+# 3. Install frontend dependencies  
 cd ../frontend
 npm install
-```
 
-### 2. Start Backend (Terminal 1)
-```bash
-cd project/backend
+# 4. Start backend (Terminal 1)
+cd ../backend
 npm run start:dev
-```
-Backend will run on: http://localhost:3001
-Swagger docs: http://localhost:3001/api/docs
+# Backend: http://localhost:3001
+# Swagger: http://localhost:3001/api/docs
 
-### 3. Start Frontend (Terminal 2)
-```bash
-cd project/frontend
+# 5. Start frontend (Terminal 2)
+cd ../frontend
 npm run dev
-```
-Frontend will run on: http://localhost:5173
-
-### Alternative: Use Bash Script (Linux/Mac/WSL)
-```bash
-./start_local.sh
+# Frontend: http://localhost:5173
 ```
 
-## 📁 Project Structure
+### 📁 Project Structure
 
 ```
 Assignment-Da-Vinci-Board-Game/
-├── project/
-│   ├── frontend/           # React + Vite frontend
-│   │   ├── src/
-│   │   │   ├── components/ # React components
-│   │   │   ├── services/   # API services
-│   │   │   ├── types/      # TypeScript types
+├── 📁 project/
+│   ├── 🌐 frontend/           # React + Vite frontend
+│   │   ├── 📁 src/
+│   │   │   ├── 🧩 components/ # React components
+│   │   │   ├── 🔧 services/   # API services
+│   │   │   ├── 📝 types/      # TypeScript types
+│   │   │   ├── 🌍 i18n/       # Internationalization
 │   │   │   └── ...
-│   │   ├── package.json
-│   │   └── README.md
+│   │   └── 📄 README.md
 │   │
-│   └── backend/            # NestJS backend
-│       ├── src/
-│       │   ├── controllers/ # API controllers
-│       │   ├── services/    # Business logic
-│       │   ├── dto/         # Data transfer objects
-│       │   ├── entities/    # Type definitions
+│   └── 🚀 backend/            # NestJS backend
+│       ├── 📁 src/
+│       │   ├── 🎮 controllers/ # API controllers
+│       │   ├── 🔧 services/    # Business logic
+│       │   ├── 📝 dto/         # Data transfer objects
+│       │   ├── 🏗️ entities/    # Type definitions
 │       │   └── ...
-│       ├── package.json
-│       └── README.md
+│       └── 📄 README.md
 │
-├── .gitignore
-└── README.md
+├── 📄 README.md
+└── 🚀 start_local.*
 ```
 
-## ✨ Features
+### 🌟 Features
 
-### Frontend Features
-- 🏠 **Homepage**: Welcome page with feature overview
+#### 🌐 Frontend Features
+- 🏠 **Homepage**: Bilingual welcome page with feature overview
 - 👥 **User Management**: Full CRUD operations for users
 - 📝 **Post Management**: Full CRUD operations for posts
 - 🔗 **Relationships**: View posts by specific users
+- 🌍 **Language Switcher**: Toggle between English and Turkish
 - 🎨 **Modern UI**: Clean, responsive design with React Icons
 - ✅ **Validation**: Client-side form validation
 - 🔄 **Real-time**: Instant feedback for all operations
-- 📱 **Responsive**: Works on desktop, tablet, and mobile
 
-### Backend Features
-- 🚀 **RESTful API**: Complete REST API with proper HTTP methods
-- 📊 **Swagger Docs**: Interactive API documentation
+#### 🚀 Backend Features
+- 📚 **RESTful API**: Complete REST API with proper HTTP methods
+- 📊 **Swagger UI**: Interactive API documentation (English/Turkish)
 - ✅ **Validation**: Request validation with decorators
 - 🔒 **CORS**: Cross-origin requests enabled
 - 💾 **In-Memory**: No database setup required
 - 🎯 **TypeScript**: Full type safety throughout
-- 🔍 **Error Handling**: Comprehensive error responses
-- 🔄 **Hot Reload**: Development server with auto-restart
 
-## 🛠 Tech Stack
+### 📚 API Documentation
 
-### Frontend
-- **React 19** - Modern React with latest features
-- **TypeScript** - Type safety and better developer experience
-- **Vite** - Fast build tool and dev server
-- **React Router DOM** - Client-side routing
-- **React Icons** - Beautiful icon library
-- **CSS3** - Modern styling with gradients and animations
+Visit **Swagger UI** for interactive API documentation:
+- 🌐 **English**: http://localhost:3001/api/docs
+- 🇹🇷 **Turkish**: http://localhost:3001/api/docs?lang=tr
 
-### Backend
-- **NestJS** - Progressive Node.js framework
-- **TypeScript** - Type safety and modern JavaScript
-- **Swagger/OpenAPI** - API documentation
-- **Class Validator** - Request validation
-- **Class Transformer** - Object transformation
-- **Express** - Underlying HTTP server
+#### API Endpoints
 
-## 📚 API Endpoints
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| 📋 GET | `/users` | Get all users |
+| 👤 GET | `/users/:id` | Get user by ID |
+| ➕ POST | `/users` | Create new user |
+| ✏️ PATCH | `/users/:id` | Update user |
+| 🗑️ DELETE | `/users/:id` | Delete user |
+| 📋 GET | `/posts` | Get all posts |
+| 🔍 GET | `/posts?userId=:id` | Get posts by user |
+| 📝 GET | `/posts/:id` | Get post by ID |
+| ➕ POST | `/posts` | Create new post |
+| ✏️ PATCH | `/posts/:id` | Update post |
+| 🗑️ DELETE | `/posts/:id` | Delete post |
 
-### Users API
-- `GET /users` - Get all users
-- `GET /users/:id` - Get user by ID  
-- `POST /users` - Create new user
-- `PATCH /users/:id` - Update user
-- `DELETE /users/:id` - Delete user
+### 🎨 UI/UX Highlights
 
-### Posts API
-- `GET /posts` - Get all posts
-- `GET /posts?userId=:id` - Get posts by user
-- `GET /posts/:id` - Get post by ID
-- `POST /posts` - Create new post
-- `PATCH /posts/:id` - Update post
-- `DELETE /posts/:id` - Delete post
+- 🌈 **Modern Design**: Gradient-based color scheme
+- ✨ **Smooth Animations**: Hover effects and transitions
+- 📱 **Responsive Layout**: Mobile-first design approach
+- 🔄 **User Feedback**: Loading states and error messages
+- ♿ **Accessibility**: Keyboard navigation and screen reader support
+- 🌍 **Bilingual**: Complete Turkish and English support
 
-## 🎨 UI/UX Highlights
+---
 
-- **Modern Design**: Gradient-based color scheme
-- **Smooth Animations**: Hover effects and transitions
-- **Responsive Layout**: Mobile-first design approach
-- **User Feedback**: Loading states and error messages
-- **Accessibility**: Keyboard navigation and screen reader support
-- **Form Validation**: Real-time validation with error highlighting
+## 🇹🇷 Türkçe Versiyon
 
-## 🔧 Development
+### 🚀 Proje Genel Bakış
 
-### Code Quality
-- ESLint configuration for both frontend and backend
-- TypeScript strict mode enabled
-- Consistent code formatting
-- Proper error handling and logging
+**React 19 + TypeScript frontend** ve **NestJS + TypeScript backend** ile **iki dilli destek (İngilizce/Türkçe)** içeren, kullanıcılar ve gönderiler için kapsamlı CRUD işlemleri sunan eksiksiz bir full-stack web uygulaması.
 
-### Development Workflow
-1. Start backend development server
-2. Start frontend development server
-3. Both servers support hot reload
-4. API changes automatically reflected in Swagger docs
-5. Frontend automatically connects to backend API
+### ✨ Temel Özellikler
 
-## 🧪 Testing
+- 🌍 **İki Dilli Destek**: Tam Türkçe ve İngilizce dil desteği
+- 🏠 **Modern Frontend**: React 19 + Vite + TypeScript + React Icons
+- 🚀 **Güçlü Backend**: NestJS + TypeScript + Swagger UI + Bellek içi depolama
+- 📚 **İnteraktif API Dokümanları**: Kapsamlı Swagger UI dokümantasyonu
+- 🎨 **Güzel UI/UX**: Akıcı animasyonlarla modern tasarım
+- 🔄 **Gerçek Zamanlı İşlemler**: Kullanıcı geri bildirimi ile anlık CRUD işlemleri
+- 📱 **Duyarlı Tasarım**: Tüm cihazlarda mükemmel çalışır
 
-### Frontend Testing
+### 🛠 Teknoloji Yığını
+
+<div align="center">
+
+| Frontend | Backend | Araçlar |
+|----------|---------|---------|
+| ![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB) React 19 | ![NestJS](https://img.shields.io/badge/NestJS-E0234E?style=flat-square&logo=nestjs&logoColor=white) NestJS | ![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=flat-square&logo=swagger&logoColor=black) Swagger UI |
+| ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white) TypeScript | ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white) TypeScript | ![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=flat-square&logo=eslint&logoColor=white) ESLint |
+| ![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white) Vite | ![Express](https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white) Express | ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white) Git |
+| ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=flat-square&logo=react-router&logoColor=white) React Router | ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white) Node.js | ![npm](https://img.shields.io/badge/npm-CB3837?style=flat-square&logo=npm&logoColor=white) npm |
+
+</div>
+
+### 🚀 Hızlı Başlangıç
+
+#### Ön Koşullar
+- ![Node.js](https://img.shields.io/badge/Node.js-v18+-339933?style=flat-square&logo=nodedotjs&logoColor=white)
+- ![npm](https://img.shields.io/badge/npm-güncel-CB3837?style=flat-square&logo=npm&logoColor=white)
+
+#### 🪟 Windows Hızlı Başlangıç
+**Bu dosyalardan birine çift tıklayın:**
+- `start_local.bat` - Windows Batch dosyası
+- `start_local.ps1` - PowerShell betiği
+
+#### 🔧 Manuel Kurulum
+
 ```bash
-cd project/frontend
-npm run lint  # ESLint check
-```
+# 1. Depoyu klonlayın
+git clone <repository-url>
+cd Assignment-Da-Vinci-Board-Game
 
-### Backend Testing
-```bash
+# 2. Backend bağımlılıklarını yükleyin
 cd project/backend
-npm run test        # Unit tests
-npm run test:cov    # Test coverage
-npm run lint        # ESLint check
+npm install --legacy-peer-deps
+
+# 3. Frontend bağımlılıklarını yükleyin
+cd ../frontend
+npm install
+
+# 4. Backend'i başlatın (Terminal 1)
+cd ../backend
+npm run start:dev
+# Backend: http://localhost:3001
+# Swagger: http://localhost:3001/api/docs
+
+# 5. Frontend'i başlatın (Terminal 2)
+cd ../frontend
+npm run dev
+# Frontend: http://localhost:5173
 ```
 
-## 📖 Documentation
+### 🌟 Özellikler
 
-- **Frontend README**: `project/frontend/README.md`
-- **Backend README**: `project/backend/README.md`
-- **API Documentation**: http://localhost:3001/api/docs (when backend is running)
+#### 🌐 Frontend Özellikleri
+- 🏠 **Ana Sayfa**: Özellik genel bakışı ile iki dilli karşılama sayfası
+- 👥 **Kullanıcı Yönetimi**: Kullanıcılar için tam CRUD işlemleri
+- 📝 **Gönderi Yönetimi**: Gönderiler için tam CRUD işlemleri
+- 🔗 **İlişkiler**: Belirli kullanıcıların gönderilerini görüntüleme
+- 🌍 **Dil Değiştirici**: İngilizce ve Türkçe arasında geçiş
+- 🎨 **Modern UI**: React Icons ile temiz, duyarlı tasarım
+- ✅ **Doğrulama**: İstemci tarafı form doğrulama
+- 🔄 **Gerçek Zamanlı**: Tüm işlemler için anlık geri bildirim
 
-## 🚦 Phase Implementation
+#### 🚀 Backend Özellikleri
+- 📚 **RESTful API**: Uygun HTTP yöntemleri ile eksiksiz REST API
+- 📊 **Swagger UI**: İnteraktif API dokümantasyonu (İngilizce/Türkçe)
+- ✅ **Doğrulama**: Dekoratörlerle istek doğrulama
+- 🔒 **CORS**: Cross-origin istekleri etkin
+- 💾 **Bellek İçi**: Veritabanı kurulumu gerektirmez
+- 🎯 **TypeScript**: Baştan sona tam tip güvenliği
 
-### Phase 1: Frontend with JSONPlaceholder ✅
-- React + Vite + TypeScript setup
-- Homepage with navigation
-- User and Post components with CRUD
-- Integration with JSONPlaceholder API
-- Modern UI with React Icons
-- Form validation and error handling
+### 📚 API Dokümantasyonu
 
-### Phase 2: Backend Integration ✅
-- NestJS backend with TypeScript
-- In-memory CRUD services for users and posts
-- Swagger API documentation
-- CORS configuration for frontend
-- Frontend updated to use backend API
-- Comprehensive error handling
+İnteraktif API dokümantasyonu için **Swagger UI**'yi ziyaret edin:
+- 🌐 **İngilizce**: http://localhost:3001/api/docs
+- 🇹🇷 **Türkçe**: http://localhost:3001/api/docs?lang=tr
 
-## 🌟 Key Achievements
+#### API Uç Noktaları
 
-1. **Full-Stack TypeScript**: End-to-end type safety
-2. **Modern Architecture**: Clean separation of concerns
-3. **Developer Experience**: Hot reload, comprehensive docs
-4. **User Experience**: Responsive design, real-time feedback
-5. **Code Quality**: ESLint, proper error handling
-6. **Documentation**: Comprehensive README files and API docs
+| Yöntem | Uç Nokta | Açıklama |
+|--------|----------|----------|
+| 📋 GET | `/users` | Tüm kullanıcıları getir |
+| 👤 GET | `/users/:id` | ID'ye göre kullanıcı getir |
+| ➕ POST | `/users` | Yeni kullanıcı oluştur |
+| ✏️ PATCH | `/users/:id` | Kullanıcıyı güncelle |
+| 🗑️ DELETE | `/users/:id` | Kullanıcıyı sil |
+| 📋 GET | `/posts` | Tüm gönderileri getir |
+| 🔍 GET | `/posts?userId=:id` | Kullanıcıya göre gönderileri getir |
+| 📝 GET | `/posts/:id` | ID'ye göre gönderi getir |
+| ➕ POST | `/posts` | Yeni gönderi oluştur |
+| ✏️ PATCH | `/posts/:id` | Gönderiyi güncelle |
+| 🗑️ DELETE | `/posts/:id` | Gönderiyi sil |
 
-## 🐛 Troubleshooting
+### 🎨 UI/UX Öne Çıkanlar
 
-### Common Issues
+- 🌈 **Modern Tasarım**: Gradyan tabanlı renk şeması
+- ✨ **Akıcı Animasyonlar**: Hover efektleri ve geçişler
+- 📱 **Duyarlı Düzen**: Mobil öncelikli tasarım yaklaşımı
+- 🔄 **Kullanıcı Geri Bildirimi**: Yükleme durumları ve hata mesajları
+- ♿ **Erişilebilirlik**: Klavye navigasyonu ve ekran okuyucu desteği
+- 🌍 **İki Dilli**: Tam Türkçe ve İngilizce desteği
 
-1. **Backend won't start**
+---
+
+### 🔧 Geliştirme
+
+#### Kod Kalitesi
+- ![ESLint](https://img.shields.io/badge/ESLint-4B32C3?style=flat-square&logo=eslint&logoColor=white) ESLint yapılandırması
+- ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white) TypeScript strict mode
+- ![Prettier](https://img.shields.io/badge/Prettier-F7B93E?style=flat-square&logo=prettier&logoColor=black) Tutarlı kod biçimlendirme
+
+#### Geliştirme İş Akışı
+1. Backend geliştirme sunucusunu başlat
+2. Frontend geliştirme sunucusunu başlat
+3. Her iki sunucu da hot reload destekler
+4. API değişiklikleri otomatik olarak Swagger dokümanlarına yansır
+
+### 🧪 Test Etme
+
+```bash
+# Frontend
+cd project/frontend
+npm run lint
+
+# Backend
+cd project/backend
+npm run test
+npm run test:cov
+npm run lint
+```
+
+### 🐛 Sorun Giderme
+
+#### Yaygın Sorunlar
+
+1. **Port zaten kullanımda**
+   ```bash
+   npx kill-port 3001  # Backend portu
+   npx kill-port 5173  # Frontend portu
+   ```
+
+2. **Backend başlamıyor**
    ```bash
    cd project/backend
    npm install --legacy-peer-deps
    ```
 
-2. **Frontend can't connect to backend**
-   - Ensure backend is running on port 3001
-   - Check CORS configuration in backend
+3. **Frontend backend'e bağlanamıyor**
+   - Backend'in 3001 portunda çalıştığından emin olun
+   - Backend'de CORS yapılandırmasını kontrol edin
 
-3. **Port conflicts**
-   ```bash
-   npx kill-port 3001  # Kill backend port
-   npx kill-port 5173  # Kill frontend port
-   ```
+### 🔮 Gelecek Geliştirmeler
 
-## 🔮 Future Enhancements
+- [ ] Kullanıcı kimlik doğrulama ve yetkilendirme
+- [ ] Veritabanı entegrasyonu (PostgreSQL/MongoDB)
+- [ ] WebSocket'ler ile gerçek zamanlı güncellemeler
+- [ ] Dosya yükleme yetenekleri
+- [ ] Gelişmiş arama ve filtreleme
+- [ ] Büyük veri setleri için sayfalama
+- [ ] Koyu/açık tema değiştirici
+- [ ] Docker konteynerizasyonu
 
-- [ ] User authentication and authorization
-- [ ] Database integration (PostgreSQL/MongoDB)
-- [ ] Real-time updates with WebSockets
-- [ ] File upload capabilities
-- [ ] Advanced search and filtering
-- [ ] Pagination for large datasets
-- [ ] Dark/light theme toggle
-- [ ] Docker containerization
-- [ ] CI/CD pipeline
-- [ ] Unit and integration tests
+### 📄 Lisans
 
-## 📄 Assignment Requirements Fulfilled
+Bu proje Da Vinci Board Game ödevinin bir parçasıdır.
 
-✅ **Frontend Requirements**
-- React + TypeScript + Vite
-- Homepage with links to Users and Posts
-- Sample data integration (initially JSONPlaceholder, then backend)
-- CRUD operations for users and posts
-- User-post relationships via userId
-- Modern UI/UX with React Icons
-- ESLint compliance
-- Comprehensive README
+---
 
-✅ **Backend Requirements**
-- NestJS + TypeScript backend
-- CRUD API endpoints for users and posts
-- In-memory data storage (no database)
-- CORS enabled for frontend communication
-- Swagger API documentation
-- ESLint compliance
-- Separate port (3001) from frontend (5173)
-- Comprehensive README
+<div align="center">
 
-✅ **Integration Requirements**
-- Frontend updated to use backend API
-- Proper error handling and validation
-- Clean project structure
-- Both servers run independently
-- Complete documentation
+### 🌟 Katkıda Bulunun
 
-## 👨‍💻 Developer Notes
+Bu projeyi beğendiyseniz ⭐ vermeyi unutmayın!
 
-This project showcases modern full-stack development practices with:
-- Type-safe development with TypeScript
-- Component-based architecture
-- RESTful API design
-- Comprehensive documentation
-- Professional code organization
-- Production-ready error handling
+**Made with ❤️ by Da Vinci Team**
 
-Perfect for demonstrating full-stack development skills with modern technologies!
+</div>
