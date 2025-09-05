@@ -1,52 +1,81 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FcBusinessman, FcDocument, FcInfo } from 'react-icons/fc';
+import { FcBusinessman, FcDocument, FcInfo, FcGlobe } from 'react-icons/fc';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Homepage: React.FC = () => {
+  const { t, language } = useLanguage();
+
   return (
     <div className="homepage">
       <div className="hero-section">
-        <h1>Welcome to Assignment</h1>
-        <p>Manage users and posts with our comprehensive CRUD application</p>
+        <h1>{t.home.title}</h1>
+        <p className="hero-subtitle">{t.home.subtitle}</p>
+        <p className="hero-description">{t.home.description}</p>
+        
+        <div className="hero-actions">
+          <Link to="/users" className="hero-button primary">
+            <FcBusinessman className="button-icon" />
+            {t.home.getStarted}
+          </Link>
+          <a 
+            href={`http://localhost:3001/api/docs${language === 'tr' ? '/tr' : ''}`}
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="hero-button secondary"
+          >
+            <FcGlobe className="button-icon" />
+            {t.home.apiDocs}
+          </a>
+        </div>
       </div>
       
-      <div className="feature-cards">
-        <div className="feature-card">
-          <div className="feature-icon">
-            <FcBusinessman size={64} />
+      <div className="features-section">
+        <h2>{t.home.features.title}</h2>
+        <div className="feature-cards">
+          <div className="feature-card">
+            <div className="feature-icon">
+              <FcBusinessman size={64} />
+            </div>
+            <h3>{t.home.features.userManagement.title}</h3>
+            <p>{t.home.features.userManagement.description}</p>
+            <Link to="/users" className="feature-button">
+              {t.nav.users}
+            </Link>
           </div>
-          <h3>User Management</h3>
-          <p>Create, read, update, and delete users. View user profiles with detailed information including contact details.</p>
-          <Link to="/users" className="feature-button">
-            Manage Users
-          </Link>
-        </div>
 
-        <div className="feature-card">
-          <div className="feature-icon">
-            <FcDocument size={64} />
+          <div className="feature-card">
+            <div className="feature-icon">
+              <FcDocument size={64} />
+            </div>
+            <h3>{t.home.features.postManagement.title}</h3>
+            <p>{t.home.features.postManagement.description}</p>
+            <Link to="/posts" className="feature-button">
+              {t.nav.posts}
+            </Link>
           </div>
-          <h3>Post Management</h3>
-          <p>Handle all post operations. Create new posts, edit existing ones, and see the relationship between users and their posts.</p>
-          <Link to="/posts" className="feature-button">
-            Manage Posts
-          </Link>
-        </div>
 
-        <div className="feature-card">
-          <div className="feature-icon">
-            <FcInfo size={64} />
+          <div className="feature-card">
+            <div className="feature-icon">
+              <FcInfo size={64} />
+            </div>
+            <h3>{t.home.features.realTime.title}</h3>
+            <p>{t.home.features.realTime.description}</p>
+            <div className="features-list">
+              <ul>
+                <li>{t.home.features.responsive.title}</li>
+                <li>{t.home.features.responsive.description}</li>
+              </ul>
+            </div>
           </div>
-          <h3>Features</h3>
-          <div className="features-list">
-            <ul>
-              <li>Full CRUD operations</li>
-              <li>User-Post relationships</li>
-              <li>Real-time updates</li>
-              <li>Responsive design</li>
-              <li>Clean UI/UX</li>
-            </ul>
-          </div>
+        </div>
+      </div>
+
+      <div className="tech-stack-section">
+        <h2>{t.home.techStack.title}</h2>
+        <div className="tech-info">
+          <p><strong>Frontend:</strong> {t.home.techStack.frontend}</p>
+          <p><strong>Backend:</strong> {t.home.techStack.backend}</p>
         </div>
       </div>
     </div>

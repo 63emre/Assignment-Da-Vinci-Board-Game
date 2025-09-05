@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import type { Post, User } from '../types';
 import { ApiService } from '../services/api';
 import { FcPlus, FcEditImage, FcEmptyTrash, FcBusinessman } from 'react-icons/fc';
+import { useLanguage } from '../contexts/LanguageContext';
 import PostForm from './PostForm';
 import Modal from './Modal';
 
 const PostList: React.FC = () => {
+  const { t } = useLanguage();
   const [posts, setPosts] = useState<Post[]>([]);
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
@@ -29,7 +31,7 @@ const PostList: React.FC = () => {
       setPosts(postsData);
       setUsers(usersData);
     } catch (err) {
-      setError('Failed to fetch data. Please try again.');
+      setError(t.messages.networkError);
       console.error('Error fetching data:', err);
     } finally {
       setLoading(false);
@@ -47,12 +49,12 @@ const PostList: React.FC = () => {
   };
 
   const handleDeletePost = async (id: number) => {
-    if (window.confirm('Are you sure you want to delete this post?')) {
+    if (window.confirm(t.posts.confirmDelete)) {
       try {
         await ApiService.deletePost(id);
         setPosts(posts.filter(post => post.id !== id));
       } catch (err) {
-        setError('Failed to delete post. Please try again.');
+        setError(t.messages.errorOccurred);
         console.error('Error deleting post:', err);
       }
     }
@@ -92,7 +94,7 @@ const PostList: React.FC = () => {
   };
 
   if (loading) {
-    return <div className="loading">Loading posts...</div>;
+    return <div className="loading">{t.common.loading}</div>;
   }
 
   if (error) {
@@ -100,7 +102,7 @@ const PostList: React.FC = () => {
       <div className="error-container">
         <div className="error-message">{error}</div>
         <button onClick={fetchData} className="retry-button">
-          Retry
+          {t.common.retry}
         </button>
       </div>
     );
@@ -111,21 +113,21 @@ const PostList: React.FC = () => {
   return (
     <div className="post-list-container">
       <div className="page-header">
-        <h2>Post Management</h2>
+        <h2>{t.posts.title}</h2>
         <button onClick={handleCreatePost} className="primary-button">
           <FcPlus className="button-icon" />
-          Add New Post
+          {t.posts.addPost}
         </button>
       </div>
 
       <div className="filters-section">
-        <h3>Filter by User:</h3>
+        <h3>{t.common.filter}:</h3>
         <div className="user-filters">
           <button
             onClick={() => handleUserFilter(null)}
             className={`filter-button ${selectedUserId === null ? 'active' : ''}`}
           >
-            All Posts ({posts.length})
+            {t.posts.allPosts} ({posts.length})
           </button>
           {users.map(user => {
             const userPostCount = posts.filter(post => post.userId === user.id).length;
@@ -196,7 +198,7 @@ const PostList: React.FC = () => {
           setShowModal(false);
           setEditingPost(null);
         }}
-        title={editingPost ? 'Edit Post' : 'Create New Post'}
+        title={editingPost ? t.posts.editPost : t.posts.addPost}
       >
         <PostForm
           post={editingPost}

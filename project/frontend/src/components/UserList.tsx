@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import type { User } from '../types';
 import { ApiService } from '../services/api';
 import { FcPlus, FcEditImage, FcEmptyTrash, FcCancel, FcCheckmark, FcDocument } from 'react-icons/fc';
+import { useLanguage } from '../contexts/LanguageContext';
 import UserForm from './UserForm';
 import Modal from './Modal';
 
 const UserList: React.FC = () => {
+  const { t } = useLanguage();
   const [users, setUsers] = useState<User[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -24,7 +26,7 @@ const UserList: React.FC = () => {
       const data = await ApiService.getUsers();
       setUsers(data);
     } catch (err) {
-      setError('Failed to fetch users. Please try again.');
+      setError(t.messages.networkError);
       console.error('Error fetching users:', err);
     } finally {
       setLoading(false);
@@ -42,12 +44,12 @@ const UserList: React.FC = () => {
   };
 
   const handleDeleteUser = async (id: number) => {
-    if (window.confirm('Are you sure you want to delete this user?')) {
+    if (window.confirm(t.users.confirmDelete)) {
       try {
         await ApiService.deleteUser(id);
         setUsers(users.filter(user => user.id !== id));
       } catch (err) {
-        setError('Failed to delete user. Please try again.');
+        setError(t.messages.errorOccurred);
         console.error('Error deleting user:', err);
       }
     }
@@ -65,7 +67,7 @@ const UserList: React.FC = () => {
       setShowModal(false);
       setEditingUser(null);
     } catch (err) {
-      setError('Failed to save user. Please try again.');
+      setError(t.messages.errorOccurred);
       console.error('Error saving user:', err);
     }
   };
@@ -75,7 +77,7 @@ const UserList: React.FC = () => {
   };
 
   if (loading) {
-    return <div className="loading">Loading users...</div>;
+    return <div className="loading">{t.common.loading}</div>;
   }
 
   if (error) {
@@ -83,7 +85,7 @@ const UserList: React.FC = () => {
       <div className="error-container">
         <div className="error-message">{error}</div>
         <button onClick={fetchUsers} className="retry-button">
-          Retry
+          {t.common.retry || 'Retry'}
         </button>
       </div>
     );
@@ -92,10 +94,10 @@ const UserList: React.FC = () => {
   return (
     <div className="user-list-container">
       <div className="page-header">
-        <h2>User Management</h2>
+        <h2>{t.users.title}</h2>
         <button onClick={handleCreateUser} className="primary-button">
           <FcPlus className="button-icon" />
-          Add New User
+          {t.users.addUser}
         </button>
       </div>
 
@@ -108,21 +110,21 @@ const UserList: React.FC = () => {
                 <button
                   onClick={() => handleViewUserPosts(user.id)}
                   className="action-button"
-                  title="View Posts"
+                  title={t.users.viewPosts}
                 >
                   <FcDocument />
                 </button>
                 <button
                   onClick={() => handleEditUser(user)}
                   className="action-button"
-                  title="Edit User"
+                  title={t.common.edit}
                 >
                   <FcEditImage />
                 </button>
                 <button
                   onClick={() => handleDeleteUser(user.id)}
                   className="action-button delete"
-                  title="Delete User"
+                  title={t.common.delete}
                 >
                   <FcEmptyTrash />
                 </button>
@@ -159,7 +161,7 @@ const UserList: React.FC = () => {
           setShowModal(false);
           setEditingUser(null);
         }}
-        title={editingUser ? 'Edit User' : 'Create New User'}
+        title={editingUser ? t.users.editUser : t.users.addUser}
       >
         <UserForm
           user={editingUser}

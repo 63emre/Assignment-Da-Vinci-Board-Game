@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import type { User } from '../types';
 import { FcCheckmark, FcCancel } from 'react-icons/fc';
+import { useLanguage } from '../contexts/LanguageContext';
 
 interface UserFormProps {
   user?: User | null;
@@ -9,6 +10,7 @@ interface UserFormProps {
 }
 
 const UserForm: React.FC<UserFormProps> = ({ user, onSubmit, onCancel }) => {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     username: '',
@@ -35,17 +37,17 @@ const UserForm: React.FC<UserFormProps> = ({ user, onSubmit, onCancel }) => {
     const newErrors: {[key: string]: string} = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
+      newErrors.name = t.users.form.nameRequired;
     }
 
     if (!formData.username.trim()) {
-      newErrors.username = 'Username is required';
+      newErrors.username = t.users.form.usernameRequired;
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
+      newErrors.email = t.users.form.emailRequired;
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Email is invalid';
+      newErrors.email = t.users.form.emailInvalid;
     }
 
     setErrors(newErrors);
@@ -79,7 +81,7 @@ const UserForm: React.FC<UserFormProps> = ({ user, onSubmit, onCancel }) => {
   return (
     <form onSubmit={handleSubmit} className="user-form">
       <div className="form-group">
-        <label htmlFor="name">Name *</label>
+        <label htmlFor="name">{t.users.form.name} *</label>
         <input
           type="text"
           id="name"
@@ -87,13 +89,13 @@ const UserForm: React.FC<UserFormProps> = ({ user, onSubmit, onCancel }) => {
           value={formData.name}
           onChange={handleChange}
           className={errors.name ? 'error' : ''}
-          placeholder="Enter full name"
+          placeholder={t.users.form.name}
         />
         {errors.name && <span className="error-text">{errors.name}</span>}
       </div>
 
       <div className="form-group">
-        <label htmlFor="username">Username *</label>
+        <label htmlFor="username">{t.users.form.username} *</label>
         <input
           type="text"
           id="username"
@@ -101,13 +103,13 @@ const UserForm: React.FC<UserFormProps> = ({ user, onSubmit, onCancel }) => {
           value={formData.username}
           onChange={handleChange}
           className={errors.username ? 'error' : ''}
-          placeholder="Enter username"
+          placeholder={t.users.form.username}
         />
         {errors.username && <span className="error-text">{errors.username}</span>}
       </div>
 
       <div className="form-group">
-        <label htmlFor="email">Email *</label>
+        <label htmlFor="email">{t.users.form.email} *</label>
         <input
           type="email"
           id="email"
@@ -115,43 +117,43 @@ const UserForm: React.FC<UserFormProps> = ({ user, onSubmit, onCancel }) => {
           value={formData.email}
           onChange={handleChange}
           className={errors.email ? 'error' : ''}
-          placeholder="Enter email address"
+          placeholder={t.users.form.email}
         />
         {errors.email && <span className="error-text">{errors.email}</span>}
       </div>
 
       <div className="form-group">
-        <label htmlFor="phone">Phone</label>
+        <label htmlFor="phone">{t.users.form.phone}</label>
         <input
           type="tel"
           id="phone"
           name="phone"
           value={formData.phone}
           onChange={handleChange}
-          placeholder="Enter phone number"
+          placeholder={t.users.form.phone}
         />
       </div>
 
       <div className="form-group">
-        <label htmlFor="website">Website</label>
+        <label htmlFor="website">{t.users.form.website}</label>
         <input
           type="url"
           id="website"
           name="website"
           value={formData.website}
           onChange={handleChange}
-          placeholder="Enter website URL"
+          placeholder={t.users.form.website}
         />
       </div>
 
       <div className="form-actions">
         <button type="submit" className="submit-button">
           <FcCheckmark className="button-icon" />
-          {user ? 'Update User' : 'Create User'}
+          {user ? t.users.editUser : t.users.addUser}
         </button>
         <button type="button" onClick={onCancel} className="cancel-button">
           <FcCancel className="button-icon" />
-          Cancel
+          {t.common.cancel}
         </button>
       </div>
     </form>

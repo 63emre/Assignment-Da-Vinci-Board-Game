@@ -1,6 +1,8 @@
 import { User, Post } from '../types';
 
-const BASE_URL = 'http://localhost:3001';
+const BASE_URL = process.env.NODE_ENV === 'production' 
+  ? '/api' 
+  : 'http://localhost:3001';
 
 export class ApiService {
   // User CRUD operations

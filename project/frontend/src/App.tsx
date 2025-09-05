@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { LanguageProvider } from './contexts/LanguageContext';
 import Homepage from './components/Homepage';
 import UserList from './components/UserList';
 import PostList from './components/PostList';
@@ -35,20 +36,22 @@ const LoadingSpinner = () => (
 
 function App() {
   return (
-    <Router>
-      <div className="app">
-        <Navbar />
-        <main className="main-content">
-          <Suspense fallback={<LoadingSpinner />}>
-            <Routes>
-              <Route path="/" element={<Homepage />} />
-              <Route path="/users" element={<UserList />} />
-              <Route path="/posts" element={<PostList />} />
-            </Routes>
-          </Suspense>
-        </main>
-      </div>
-    </Router>
+    <LanguageProvider>
+      <Router>
+        <div className="app">
+          <Navbar />
+          <main className="main-content">
+            <Suspense fallback={<LoadingSpinner />}>
+              <Routes>
+                <Route path="/" element={<Homepage />} />
+                <Route path="/users" element={<UserList />} />
+                <Route path="/posts" element={<PostList />} />
+              </Routes>
+            </Suspense>
+          </main>
+        </div>
+      </Router>
+    </LanguageProvider>
   );
 }
 

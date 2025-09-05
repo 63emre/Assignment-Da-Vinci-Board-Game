@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import type { Post, User } from '../types';
 import { FcCheckmark, FcCancel } from 'react-icons/fc';
+import { useLanguage } from '../contexts/LanguageContext';
 
 interface PostFormProps {
   post?: Post | null;
@@ -10,6 +11,7 @@ interface PostFormProps {
 }
 
 const PostForm: React.FC<PostFormProps> = ({ post, users, onSubmit, onCancel }) => {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     title: '',
     body: '',
@@ -32,11 +34,11 @@ const PostForm: React.FC<PostFormProps> = ({ post, users, onSubmit, onCancel }) 
     const newErrors: {[key: string]: string} = {};
 
     if (!formData.title.trim()) {
-      newErrors.title = 'Title is required';
+      newErrors.title = t.posts.form.titleRequired;
     }
 
     if (!formData.userId) {
-      newErrors.userId = 'User is required';
+      newErrors.userId = t.posts.form.userRequired;
     }
 
     setErrors(newErrors);
@@ -74,7 +76,7 @@ const PostForm: React.FC<PostFormProps> = ({ post, users, onSubmit, onCancel }) 
   return (
     <form onSubmit={handleSubmit} className="post-form">
       <div className="form-group">
-        <label htmlFor="userId">Author *</label>
+        <label htmlFor="userId">{t.posts.form.user} *</label>
         <select
           id="userId"
           name="userId"
@@ -82,7 +84,7 @@ const PostForm: React.FC<PostFormProps> = ({ post, users, onSubmit, onCancel }) 
           onChange={handleChange}
           className={errors.userId ? 'error' : ''}
         >
-          <option value="">Select a user</option>
+          <option value="">{t.posts.form.selectUser}</option>
           {users.map(user => (
             <option key={user.id} value={user.id}>
               {user.name} (@{user.username})
@@ -93,7 +95,7 @@ const PostForm: React.FC<PostFormProps> = ({ post, users, onSubmit, onCancel }) 
       </div>
 
       <div className="form-group">
-        <label htmlFor="title">Title *</label>
+        <label htmlFor="title">{t.posts.form.title} *</label>
         <input
           type="text"
           id="title"
@@ -101,19 +103,19 @@ const PostForm: React.FC<PostFormProps> = ({ post, users, onSubmit, onCancel }) 
           value={formData.title}
           onChange={handleChange}
           className={errors.title ? 'error' : ''}
-          placeholder="Enter post title"
+          placeholder={t.posts.form.title}
         />
         {errors.title && <span className="error-text">{errors.title}</span>}
       </div>
 
       <div className="form-group">
-        <label htmlFor="body">Content</label>
+        <label htmlFor="body">{t.posts.form.body}</label>
         <textarea
           id="body"
           name="body"
           value={formData.body}
           onChange={handleChange}
-          placeholder="Enter post content"
+          placeholder={t.posts.form.body}
           rows={6}
         />
       </div>
@@ -121,11 +123,11 @@ const PostForm: React.FC<PostFormProps> = ({ post, users, onSubmit, onCancel }) 
       <div className="form-actions">
         <button type="submit" className="submit-button">
           <FcCheckmark className="button-icon" />
-          {post ? 'Update Post' : 'Create Post'}
+          {post ? t.posts.editPost : t.posts.addPost}
         </button>
         <button type="button" onClick={onCancel} className="cancel-button">
           <FcCancel className="button-icon" />
-          Cancel
+          {t.common.cancel}
         </button>
       </div>
     </form>
