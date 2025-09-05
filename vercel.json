@@ -3,10 +3,7 @@
   "builds": [
     {
       "src": "project/backend/src/main.ts",
-      "use": "@vercel/node",
-      "config": {
-        "runtime": "nodejs18.x"
-      }
+      "use": "@vercel/node"
     },
     {
       "src": "project/frontend/package.json",
@@ -22,8 +19,11 @@
       "dest": "project/backend/src/main.ts"
     },
     {
+      "handle": "filesystem"
+    },
+    {
       "src": "/(.*)",
-      "dest": "project/frontend/dist/$1"
+      "dest": "project/frontend/dist/index.html"
     }
   ],
   "env": {
