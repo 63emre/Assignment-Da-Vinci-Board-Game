@@ -40,11 +40,11 @@ async function createApp() {
       .addTag('posts', 'Post management endpoints')
       .addTag('root', 'Root API information')
       .setContact('Da Vinci Team', 'https://www.linkedin.com/company/da-vinci-board-game', 'contact@davinci-team.com')
-      .addServer('https://assignment-da-vinci-board-game.vercel.app/api', 'Production Server')
+      .addServer('https://assignment-da-vinci-board-game.onrender.com', 'Production Server')
       .build();
 
     const document = SwaggerModule.createDocument(app, config);
-    SwaggerModule.setup('api/docs', app, document);
+    SwaggerModule.setup('docs', app, document);
 
     await app.init();
   }
