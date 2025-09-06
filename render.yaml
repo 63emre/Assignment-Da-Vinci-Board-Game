@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: davinci-backend
+    env: node
+    buildCommand: cd project/backend && npm install && npm run build
+    startCommand: cd project/backend && npm run start:prod
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
