@@ -1,100 +1,19 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { User } from '../entities/user.entity';
 import { CreateUserDto, UpdateUserDto } from '../dto/user.dto';
+import { DatabaseService } from '../database/database.service';
 
 @Injectable()
 export class UsersService {
-  private users: User[] = [
-    {
-      id: 1,
-      name: 'Leanne Graham',
-      username: 'Bret',
-      email: 'Sincere@april.biz',
-      phone: '1-770-736-8031 x56442',
-      website: 'hildegard.org',
-    },
-    {
-      id: 2,
-      name: 'Ervin Howell',
-      username: 'Antonette',
-      email: 'Shanna@melissa.tv',
-      phone: '010-692-6593 x09125',
-      website: 'anastasia.net',
-    },
-    {
-      id: 3,
-      name: 'Clementine Bauch',
-      username: 'Samantha',
-      email: 'Nathan@yesenia.net',
-      phone: '1-463-123-4447',
-      website: 'ramiro.info',
-    },
-    {
-      id: 4,
-      name: 'Patricia Lebsack',
-      username: 'Karianne',
-      email: 'Julianne.OConner@kory.org',
-      phone: '493-170-9623 x156',
-      website: 'kale.biz',
-    },
-    {
-      id: 5,
-      name: 'Chelsey Dietrich',
-      username: 'Kamren',
-      email: 'Lucio_Hettinger@annie.ca',
-      phone: '(254)954-1289',
-      website: 'demarco.info',
-    },
-    {
-      id: 6,
-      name: 'Mrs. Dennis Schulist',
-      username: 'Leopoldo_Corkery',
-      email: 'Karley_Dach@jasper.info',
-      phone: '1-477-935-8478 x6430',
-      website: 'ola.org',
-    },
-    {
-      id: 7,
-      name: 'Kurtis Weissnat',
-      username: 'Elwyn.Skiles',
-      email: 'Telly.Hoeger@billy.biz',
-      phone: '210.067.6132',
-      website: 'elvis.io',
-    },
-    {
-      id: 8,
-      name: 'Nicholas Runolfsdottir V',
-      username: 'Maxime_Nienow',
-      email: 'Sherwood@rosamond.me',
-      phone: '586.493.6943 x140',
-      website: 'jacynthe.com',
-    },
-    {
-      id: 9,
-      name: 'Glenna Reichert',
-      username: 'Delphine',
-      email: 'Chaim_McDermott@dana.io',
-      phone: '(775)976-6794 x41206',
-      website: 'conrad.com',
-    },
-    {
-      id: 10,
-      name: 'Clementina DuBuque',
-      username: 'Moriah.Stanton',
-      email: 'Rey.Padberg@karina.biz',
-      phone: '024-648-3804',
-      website: 'ambrose.net',
-    },
-  ];
-
-  private nextId = 11;
+  constructor(private readonly databaseService: DatabaseService) {}
 
   findAll(): User[] {
-    return this.users;
+    return this.databaseService.readUsers();
   }
 
   findOne(id: number): User {
-    const user = this.users.find((user) => user.id === id);
+    const users = this.databaseService.readUsers();
+    const user = users.find((user) => user.id === id);
     if (!user) {
       throw new NotFoundException(`User with ID ${id} not found`);
     }
@@ -102,29 +21,36 @@ export class UsersService {
   }
 
   create(createUserDto: CreateUserDto): User {
+    const users = this.databaseService.readUsers();
+    const nextId = Math.max(...users.map(u => u.id), 0) + 1;
     const newUser: User = {
-      id: this.nextId++,
+      id: nextId,
       ...createUserDto,
     };
-    this.users.push(newUser);
+    users.push(newUser);
+    this.databaseService.writeUsers(users);
     return newUser;
   }
 
   update(id: number, updateUserDto: UpdateUserDto): User {
-    const userIndex = this.users.findIndex((user) => user.id === id);
+    const users = this.databaseService.readUsers();
+    const userIndex = users.findIndex((user) => user.id === id);
     if (userIndex === -1) {
       throw new NotFoundException(`User with ID ${id} not found`);
     }
 
-    this.users[userIndex] = { ...this.users[userIndex], ...updateUserDto };
-    return this.users[userIndex];
+    users[userIndex] = { ...users[userIndex], ...updateUserDto };
+    this.databaseService.writeUsers(users);
+    return users[userIndex];
   }
 
   remove(id: number): void {
-    const userIndex = this.users.findIndex((user) => user.id === id);
+    const users = this.databaseService.readUsers();
+    const userIndex = users.findIndex((user) => user.id === id);
     if (userIndex === -1) {
       throw new NotFoundException(`User with ID ${id} not found`);
     }
-    this.users.splice(userIndex, 1);
+    users.splice(userIndex, 1);
+    this.databaseService.writeUsers(users);
   }
 }
