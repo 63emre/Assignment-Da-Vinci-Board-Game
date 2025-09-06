@@ -1,8 +1,6 @@
 import { User, Post } from '../types';
 
-const BASE_URL = process.env.NODE_ENV === 'production' 
-  ? 'https://assignment-da-vinci-board-game.vercel.app/api'
-  : 'http://localhost:3001';
+const BASE_URL = '/api';
 
 export class ApiService {
   // User CRUD operations
@@ -38,7 +36,7 @@ export class ApiService {
 
   static async updateUser(id: number, user: Partial<User>): Promise<User> {
     const response = await fetch(`${BASE_URL}/users/${id}`, {
-      method: 'PUT',
+      method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -100,7 +98,7 @@ export class ApiService {
 
   static async updatePost(id: number, post: Partial<Post>): Promise<Post> {
     const response = await fetch(`${BASE_URL}/posts/${id}`, {
-      method: 'PUT',
+      method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
       },

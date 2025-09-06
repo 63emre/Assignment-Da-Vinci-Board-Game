@@ -1,32 +1,10 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "project/backend/src/main.ts",
-      "use": "@vercel/node"
-    },
-    {
-      "src": "project/frontend/package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "dist"
-      }
+  "buildCommand": "cd project/frontend && npm run build",
+  "outputDirectory": "project/frontend/dist",
+  "rewrites": [
+    { 
+      "source": "/api/(.*)", 
+      "destination": "https://davinci-backend.onrender.com/$1" 
     }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "project/backend/src/main.ts"
-    },
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "project/frontend/dist/index.html"
-    }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 }
