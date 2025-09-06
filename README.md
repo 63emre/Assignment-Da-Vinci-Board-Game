@@ -83,6 +83,39 @@ npm run dev
 # Frontend: http://localhost:5173
 ```
 
+### 🌐 Live Deployment
+
+This application is deployed using a **hybrid approach** for optimal performance:
+
+#### 🚀 **Frontend**: Vercel
+- **Platform**: [Vercel](https://vercel.com)
+- **URL**: `https://assignment-da-vinci-board-game.vercel.app`
+- **Features**: 
+  - ⚡ Lightning-fast static hosting
+  - 🔄 Automatic deployments from GitHub
+  - 🌍 Global CDN distribution
+  - 📱 Perfect mobile performance
+
+#### 🖥️ **Backend**: Render
+- **Platform**: [Render](https://render.com)
+- **Features**:
+  - 🚀 Reliable Node.js hosting
+  - 🔄 Auto-deploy from GitHub
+  - 📊 Built-in monitoring
+  - 🔒 Secure HTTPS endpoints
+
+#### 🔗 **How It Works**
+- Frontend serves static files from Vercel
+- API calls (`/api/*`) are proxied to Render backend
+- Seamless integration with zero configuration
+- Production-ready with proper CORS and security headers
+
+#### 🛠️ **Deployment Configuration**
+- **Frontend Build**: `cd project/frontend && npm run build`
+- **Backend Build**: `cd project/backend && npm install && npm run build`
+- **Proxy Setup**: Vercel rewrites `/api/*` to Render backend
+- **Environment**: Production-optimized settings
+
 ### 📁 Project Structure
 
 ```
@@ -229,6 +262,39 @@ cd ../frontend
 npm run dev
 # Frontend: http://localhost:5173
 ```
+
+### 🌐 Canlı Deployment
+
+Bu uygulama optimal performans için **hibrit yaklaşım** kullanılarak deploy edilmiştir:
+
+#### 🚀 **Frontend**: Vercel
+- **Platform**: [Vercel](https://vercel.com)
+- **URL**: `https://assignment-da-vinci-board-game.vercel.app`
+- **Özellikler**: 
+  - ⚡ Şimşek hızında statik hosting
+  - 🔄 GitHub'dan otomatik deployment
+  - 🌍 Global CDN dağıtımı
+  - 📱 Mükemmel mobil performans
+
+#### 🖥️ **Backend**: Render
+- **Platform**: [Render](https://render.com)
+- **Özellikler**:
+  - 🚀 Güvenilir Node.js hosting
+  - 🔄 GitHub'dan otomatik deploy
+  - 📊 Yerleşik monitoring
+  - 🔒 Güvenli HTTPS endpoint'leri
+
+#### 🔗 **Nasıl Çalışır**
+- Frontend Vercel'den statik dosyaları sunar
+- API çağrıları (`/api/*`) Render backend'ine proxy edilir
+- Sıfır konfigürasyonla sorunsuz entegrasyon
+- Uygun CORS ve güvenlik başlıklarıyla production-ready
+
+#### 🛠️ **Deployment Konfigürasyonu**
+- **Frontend Build**: `cd project/frontend && npm run build`
+- **Backend Build**: `cd project/backend && npm install && npm run build`
+- **Proxy Kurulumu**: Vercel `/api/*` isteklerini Render backend'ine yönlendirir
+- **Environment**: Production-optimized ayarlar
 
 ### 🌟 Özellikler
 
