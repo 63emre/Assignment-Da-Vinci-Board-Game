@@ -5,15 +5,9 @@
       "src": "project/frontend/package.json",
       "use": "@vercel/static-build@2.0.0",
       "config": { "distDir": "dist" }
-    },
-    {
-      "src": "project/backend/api/index.ts",
-      "use": "@vercel/node@2.0.0",
-      "config": { "maxDuration": 30 }
     }
   ],
   "routes": [
-    { "src": "/api/(.*)", "dest": "/project/backend/api/index.ts" },
     { "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot))", "dest": "/project/frontend/dist/$1" },
     { "src": "/(.*)", "dest": "/project/frontend/dist/index.html" }
   ]

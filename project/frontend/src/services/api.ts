@@ -1,6 +1,8 @@
 import { User, Post } from '../types';
 
-const BASE_URL = '/api';
+const BASE_URL = process.env.NODE_ENV === 'production' 
+  ? 'https://assignment-da-vinci-board-game.onrender.com' 
+  : '/api';
 
 export class ApiService {
   // User CRUD operations
