@@ -4,7 +4,7 @@
   "rewrites": [
     { 
       "source": "/api/(.*)", 
-      "destination": "https://davinci-backend.onrender.com/$1" 
+      "destination": "https://assignment-da-vinci-board-game.onrender.com" 
     }
   ]
 }
