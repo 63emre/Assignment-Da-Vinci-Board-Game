@@ -1,14 +1,15 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "project/frontend/package.json",
-      "use": "@vercel/static-build@2.0.0",
-      "config": { "distDir": "dist" }
-    }
-  ],
+  "buildCommand": "cd project/frontend && npm install && npm run build",
+  "outputDirectory": "project/frontend/dist",
   "routes": [
-    { "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot))", "dest": "/project/frontend/dist/$1" },
-    { "src": "/(.*)", "dest": "/project/frontend/dist/index.html" }
+    {
+      "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot))",
+      "dest": "/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
   ]
 }
