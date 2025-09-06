@@ -89,7 +89,7 @@ This application is deployed using a **hybrid approach** for optimal performance
 
 #### 🚀 **Frontend**: Vercel
 - **Platform**: [Vercel](https://vercel.com)
-- **URL**: `https://assignment-da-vinci-board-game.vercel.app`
+- **URL**: `https://assignment-da-vinci-board-game.onrender.com`
 - **Features**: 
   - ⚡ Lightning-fast static hosting
   - 🔄 Automatic deployments from GitHub
@@ -269,7 +269,7 @@ Bu uygulama optimal performans için **hibrit yaklaşım** kullanılarak deploy 
 
 #### 🚀 **Frontend**: Vercel
 - **Platform**: [Vercel](https://vercel.com)
-- **URL**: `https://assignment-da-vinci-board-game.vercel.app`
+- **URL**: `https://assignment-da-vinci-board-game.onrender.com`
 - **Özellikler**: 
   - ⚡ Şimşek hızında statik hosting
   - 🔄 GitHub'dan otomatik deployment

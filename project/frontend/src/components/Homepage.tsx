@@ -19,7 +19,7 @@ const Homepage: React.FC = () => {
             {t.home.getStarted}
           </Link>
           <a 
-            href={`${process.env.NODE_ENV === 'production' ? '/api' : 'http://localhost:3001'}/api/docs${language === 'tr' ? '/tr' : ''}`}
+            href={`${process.env.NODE_ENV === 'production' ? 'https://assignment-da-vinci-board-game.onrender.com' : 'http://localhost:3001'}/api/docs${language === 'tr' ? '/tr' : ''}`}
             target="_blank" 
             rel="noopener noreferrer" 
             className="hero-button secondary"

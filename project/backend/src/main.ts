@@ -11,7 +11,7 @@ async function bootstrap() {
     origin:
       process.env.NODE_ENV === 'production'
         ? [
-            'https://assignment-da-vinci-board-game.vercel.app',
+            'https://assignment-da-vinci-board-game.onrender.com',
             'https://*.vercel.app',
           ]
         : ['http://localhost:5173', 'http://localhost:3000'],

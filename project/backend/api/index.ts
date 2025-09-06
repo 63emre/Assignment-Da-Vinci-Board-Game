@@ -12,7 +12,7 @@ async function createApp() {
     // Enable CORS
     app.enableCors({
       origin: [
-        'https://assignment-da-vinci-board-game.vercel.app',
+        'https://assignment-da-vinci-board-game.onrender.com',
         'https://*.vercel.app',
         'http://localhost:5173',
         'http://localhost:3000',
