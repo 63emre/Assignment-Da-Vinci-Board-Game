@@ -1,10 +1,30 @@
 {
-  "buildCommand": "cd project/frontend && npm run build",
-  "outputDirectory": "project/frontend/dist",
-  "rewrites": [
-    { 
-      "source": "/api/(.*)", 
-      "destination": "https://assignment-da-vinci-board-game.onrender.com" 
-    }
-  ]
+  "name": "assignment-da-vinci-board-game",
+  "version": "1.0.0",
+  "description": "Da Vinci Board Game - Full Stack Application with React + NestJS",
+  "private": true,
+  "scripts": {
+    "build": "cd project/frontend && npm run build",
+    "dev": "cd project/frontend && npm run dev",
+    "install:frontend": "cd project/frontend && npm install",
+    "install:backend": "cd project/backend && npm install",
+    "install:all": "npm run install:frontend && npm run install:backend",
+    "start:frontend": "cd project/frontend && npm run dev",
+    "start:backend": "cd project/backend && npm run start:dev",
+    "vercel-build": "npm run build"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "keywords": [
+    "react",
+    "nestjs",
+    "typescript",
+    "fullstack",
+    "vercel",
+    "render"
+  ],
+  "author": "Da Vinci Team",
+  "license": "MIT"
 }
