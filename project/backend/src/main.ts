@@ -8,13 +8,31 @@ async function bootstrap() {
 
   // Enable CORS
   app.enableCors({
-    origin:
-      process.env.NODE_ENV === 'production'
-        ? [
-            'https://assignment-da-vinci-board-game.onrender.com',
-            'https://*.vercel.app',
-          ]
-        : ['http://localhost:5173', 'http://localhost:3000'],
+    origin: (origin, callback) => {
+      if (process.env.NODE_ENV === 'production') {
+        const allowedOrigins = [
+          'https://assignment-da-vinci-board-game.onrender.com',
+          'https://assignment-da-vinci-board-g-git-721f13-emre-s-projects-74fad4eb.vercel.app',
+        ];
+        
+        // Allow any vercel.app subdomain
+        const isVercelApp = origin && origin.includes('.vercel.app');
+        
+        if (!origin || allowedOrigins.includes(origin) || isVercelApp) {
+          callback(null, true);
+        } else {
+          callback(new Error('Not allowed by CORS'));
+        }
+      } else {
+        // Development: allow localhost origins
+        const allowedOrigins = ['http://localhost:5173', 'http://localhost:3000'];
+        if (!origin || allowedOrigins.includes(origin)) {
+          callback(null, true);
+        } else {
+          callback(new Error('Not allowed by CORS'));
+        }
+      }
+    },
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
