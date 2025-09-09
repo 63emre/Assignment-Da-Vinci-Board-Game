@@ -95,7 +95,7 @@ async function bootstrap() {
 
   // Default English documentation
   const document = SwaggerModule.createDocument(app, getSwaggerConfig('en'));
-  SwaggerModule.setup('docs', app, document, {
+  SwaggerModule.setup('api/docs', app, document, {
     customSiteTitle: 'Da Vinci Board Game API - Interactive Documentation',
     customfavIcon: '/favicon.ico',
     customCss: `
@@ -117,7 +117,7 @@ async function bootstrap() {
 
   // Turkish documentation on different route
   const documentTr = SwaggerModule.createDocument(app, getSwaggerConfig('tr'));
-  SwaggerModule.setup('docs/tr', app, documentTr, {
+  SwaggerModule.setup('api/docs/tr', app, documentTr, {
     customSiteTitle: 'Da Vinci Board Game API - İnteraktif Dokümantasyon',
     customfavIcon: '/favicon.ico',
     customCss: `
@@ -142,7 +142,7 @@ async function bootstrap() {
 
   console.log(`🚀 Server running on http://localhost:${port}`);
   console.log(`📚 Swagger documentation available at:`);
-  console.log(`   🇬🇧 English: http://localhost:${port}/docs`);
-  console.log(`   🇹🇷 Turkish: http://localhost:${port}/docs/tr`);
+  console.log(`   🇬🇧 English: http://localhost:${port}/api/docs`);
+  console.log(`   🇹🇷 Turkish: http://localhost:${port}/api/docs/tr`);
 }
 void bootstrap();
